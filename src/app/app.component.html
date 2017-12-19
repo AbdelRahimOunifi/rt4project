@@ -1,20 +1,132 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" id="menu-toggle"><span class="glyphicon glyphicon-list" aria-hidden="true"></span></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="welcome"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+        <li><a routerLink="msg"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li>
+        <li *ngIf="aut1.isLoggedIn()">
+          <a routerLink="logging"(click)="aut1.logout()">
+            <span class="glyphicon glyphicon-off" aria-hidden="true">
+            </span> Log Out
+          </a>
+        </li>
+        <li *ngIf="!aut1.isLoggedIn()">
+          <a routerLink="logging">
+            <span class="glyphicon glyphicon-off" aria-hidden="true">
+            </span> Log In
+          </a>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-right" action="#" method="GET">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search..." id="query" name="search" [(ngModel)]="searchText">
+          <div class="input-group-btn">
+            <button type="submit" class="btn btn-success" [routerLink]="['/search',searchText]"><span class="glyphicon glyphicon-search"></span></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
 
+<div id="wrapper" class="toggled">
+  <div class="container-fluid">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <br>
+        </li>
+        <li class="sidebar-brand">
+          <a routerLink="welcome" style="font-family:verdana;">
+            <span class="fa fa-home" aria-hidden="true"></span> Home
+          </a>
+        <li class="sidebar-brand">
+          <a routerLink="desktop" style="font-family:verdana;">
+            <span class="fa fa-desktop" aria-hidden="true"></span> Desktop
+          </a>
+        </li>
+        <li class="sidebar-brand">
+          <a routerLink="smartphone" style="font-family:verdana;">
+            <span class="fa fa-mobile-phone" aria-hidden="true"></span> Smartphone
+          </a>
+        </li>
+
+        <li class="sidebar-brand">
+          <a routerLink="tablette" style="font-family:verdana;">
+            <span class="fa fa-tablet" aria-hidden="true"></span> Tablet
+          </a>
+        </li>
+        <li class="sidebar-brand">
+          <a routerLink="ecran" style="font-family:verdana;">
+            <span class="fa fa-television" aria-hidden="true"></span> Tv
+          </a>
+        </li>
+
+        <li class="sidebar-brand">
+          <a routerLink="laptop" style="font-family:verdana;">
+            <span class="fa fa-laptop" aria-hidden="true"></span> Laptop
+          </a>
+        </li>
+        <li *ngIf="aut1.isLoggedIn()" class="sidebar-brand">
+          <span class="fa fa-address-card-o" aria-hidden="true"></span><font color="#337AB7"> ADMINISTRATION</font>
+        </li>
+        <li class="sidebar-brand" *ngIf="aut1.isLoggedIn()">
+          <a routerLink="profil" style="font-family:verdana;">
+            <span class="fa fa-user-circle" aria-hidden="true"></span> Profil
+          </a>
+        </li>
+        <li class="sidebar-brand" *ngIf="aut1.isLoggedIn()" >
+          <a routerLink="panier" style="font-family:verdana;">
+            <span class="fa fa-shopping-cart" aria-hidden="true"></span> Panier
+          </a>
+        </li>
+        <li class="sidebar-brand" *ngIf="aut1.isLoggedIn()" >
+          <a routerLink="favorie" style="font-family:verdana;">
+            <span class="fa fa-star-half-o" aria-hidden="true"></span> Favorie
+          </a>
+        </li>
+      </ul>
+      <br><br>
+      <br><br>
+      <br><br>
+      <br><br>
+      <br><br>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <br><br>
+            <h1 class="fa-inverse"style="text-align:left;float:left;">E-Commerce RT4</h1>
+
+            <a routerLink="adcard" style="text-align:right;float:right;color:red" *ngIf="aut1.isAdministrator()"> welcome Admin</a>
+            <h4 class="fa-inverse" style="text-align:right;float:right;" *ngIf="aut1.isLoggedIn()">Hi {{aut1.CurrentUser.UserLName}}</h4>
+            <br style="clear:both;"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+  </div>
+</div>
+<!-- /#wrapper -->
+<br><br>
+<br><br>

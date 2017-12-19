@@ -1,0 +1,17 @@
+<p>
+  admin works!
+</p>
+<div>
+    <a class="btn btn-default" routerLink="/aduser" role="button">get all users</a>
+    <a class="btn btn-default" routerLink="/adcard" role="button">get all cards</a>
+</div>
+<div *ngIf="thedata">
+  <div *ngFor=" let thedata1 of thedata" id="colerBlache">
+    <h3>userId : {{thedata1.userId}}</h3>
+    <h3>userName : {{thedata1.userName}}</h3>
+    <h3>userLName : {{thedata1.userLName}}</h3>
+    <h3>userPassword : {{thedata1.userPassword}}</h3>
+    <h3>eMail : {{thedata1.eMail}}</h3>
+    <h3>privilege : {{thedata1.privilege}}</h3>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<p>
+    admin1 works!
+  </p>
+  <div>
+      <a class="btn btn-default" routerLink="/aduser" role="button">get all users</a>
+      <a class="btn btn-default" routerLink="/adcard" role="button">get all cards</a>
+  </div>
+  <div *ngIf="thedata2">
+      <div *ngFor=" let thedata3 of thedata2" id="colerBlache">
+        <h3>cartID : {{thedata3.cartID}}</h3>
+        <h3>productID : {{thedata3.productID}}</h3>
+        <h3>userId : {{thedata3.userId}}</h3>
+        <h3>type : {{thedata3.productName}}</h3>
+      </div>
+  </div>

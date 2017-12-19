@@ -1,0 +1,54 @@
+<div class="container">
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">Product</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr *ngFor=" let e of t; let i = index">
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src="{{e.imageUrl}}" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">{{e.productType}}</h4>
+										<p>{{e.productName}}</p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">{{e.price}}</td>
+							<td data-th="Quantity">
+								<input type="number" class="form-control text-center" value="1" [(ngModel)]="name1[e.productID]">
+							</td>
+							<td data-th="Subtotal"class="text-center" value="0">{{productprice(name1[e.productID],e.price)}}</td>
+							<td class="actions" data-th="">
+								<button (click)="delprod(e.productID,i)" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+							</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong>Total: ${{ total }}</strong></td>
+						</tr>
+						<tr>
+							<td><a routerLink="welcome" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><a onclick='
+								sumVal=0;
+								for(var i = 1;i< document.getElementById("cart").rows.length-2;i++)
+									{
+									var z=document.getElementById("cart").rows[i].cells[3].firstChild.nodeValue;
+									sumVal= sumVal + parseInt(z);
+									}
+								document.getElementById("dada").innerHTML="le total est "+ sumVal;
+								console.log(sumVal);
+								' class="btn btn-success btn-block">toltal <i class="fa fa-angle-right"></i></a><strong id="dada"></strong></td>
+							<td><a href="#" class="btn btn-success btn-block">Checkout <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table>
+</div>

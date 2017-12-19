@@ -1,0 +1,30 @@
+<p>
+  desk works!
+</p>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+
+<div class="row">
+  <div id="ounifi" class="col-lg-3 col-md-4 col-sm-6" *ngFor=" let e of e10">
+    <div class="text-center">
+      <div class="container" style="border: 3px rgba(32,3,63,0.91) solid">
+        <img class="center-block  image" id="abdel" src="{{e.imageUrl}}"/>
+        <div class="middle">
+          <div class="text">
+            <h4>{{e.price}}</h4>
+            <h4>{{e.name}}</h4>
+          </div>
+          <div class="magid">
+            <a class="btn btn-small btn-danger" [routerLink]="['/product', e.productID ]" title="Info">
+              <i class="fa fa-info-circle fa-lg"></i></a>
+            <a class="btn btn-small btn-success" (click)="achat(e.productID)" title="Ajouter au panier">
+              <i class="fa fa-shopping-cart"></i></a>
+            <a class="btn btn-small btn-success" (click)="favorie(e.productID)" title="Ajouter à ma liste d'envies">
+              <i class="fa fa-star-half-o"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

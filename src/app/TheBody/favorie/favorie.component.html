@@ -1,0 +1,43 @@
+<div class="container">
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:69%">Product</th>
+							<th style="width:21%">Price</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
+
+
+						<tr *ngFor=" let e of t">
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src="{{e.imageUrl}}" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">{{e.productType}}</h4>
+										<p>{{e.productName}}</p>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">{{e.price}}</td>
+							<td class="actions" data-th="">
+								<button class="btn btn-small btn-success" (click)="achat(e.productID)"><i class="fa fa-shopping-cart"></i></button>							
+								<button (click)="delprod(e.productID,i)" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+							</td>
+						</tr>
+
+
+
+					</tbody>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong>Total 1.99</strong></td>
+						</tr>
+						<tr>
+							<td><a routerLink="welcome" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							</tr>
+					</tfoot>
+				</table>
+</div>

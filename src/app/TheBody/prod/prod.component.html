@@ -1,0 +1,45 @@
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+<script>
+  console.log("rahim");
+</script>
+<div>
+  <div>
+<div class="row" *ngIf="e10">
+  <div id="ounifi" class="col-lg-6 col-md-6 col-sm-6">
+    <div class="text-center">
+      <div class="container" style="border: 3px rgba(32,3,63,0.91) solid">
+        <img class="center-block  image" id="abdel" src="{{e10.imageUrl}}"/>
+        <div class="middle">
+          <div class="text">
+            <h4>{{e10.price}}</h4>
+          </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="col-lg-6 col-md-6 col-sm-6">
+    <h4 class="fa-inverse">{{e10.productID}}</h4>
+    <h4 class="fa-inverse">{{e10.productName}}</h4>
+    <h4 class="fa-inverse">{{e10.productCode}}</h4>
+    <h4 class="fa-inverse">{{e10.releaseDate}}</h4>
+    <h4 class="fa-inverse">{{e10.price}}</h4>
+    <h4 class="fa-inverse">{{e10.description}}</h4>
+    <h4 class="fa-inverse">{{e10.starRating}}</h4>
+
+<div class="magid">
+  <a class="btn btn-default" (click)="onBack()" style="width: 80px">
+    <i class="glyphicon glyphicon-chevron-left"></i> Back
+  </a>
+  <a class="btn btn-small btn-danger" [routerLink]="['/product', id ]" title="Info">
+    <i class="fa fa-info-circle fa-lg"></i></a>
+  <a class="btn btn-small btn-success" href="#" title="Ajouter au panier">
+    <i class="fa fa-shopping-cart"></i></a>
+  <a class="btn btn-small btn-success" href="#" title="Ajouter à ma liste d'envies">
+    <i class="fa fa-star-half-o"></i></a>
+</div>
+  </div>
+</div>
+
+  </div>
+</div>
